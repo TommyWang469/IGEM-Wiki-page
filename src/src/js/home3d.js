@@ -289,7 +289,7 @@ ScrollTrigger.create({
 
 // ── Intro animation ───────────────────────────────────────────────────────────
 gsap.from(dnaGroup.rotation, { y: -Math.PI * 2, duration: 3, ease: 'power3.out' });
-gsap.from(dnaGroup.scale, { x: 0, y: 0, z: 0, duration: 2, ease: 'elastic.out(1, 0.5)' });
+gsap.from(dnaGroup.scale, { x: 0.35, y: 0.35, z: 0.35, duration: 2, ease: 'elastic.out(1, 0.5)' });
 
 // ── Animate ───────────────────────────────────────────────────────────────────
 const clock = new THREE.Clock();
