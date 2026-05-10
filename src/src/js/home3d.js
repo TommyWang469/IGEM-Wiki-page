@@ -85,26 +85,6 @@ const particleMat = new THREE.PointsMaterial({
 });
 scene.add(new THREE.Points(particleGeo, particleMat));
 
-// ── Secondary floating orbs ──────────────────────────────────────────────────
-const orbColors = [0x00e5ff, 0x7c4dff, 0x1de9b6, 0xff6b6b];
-const orbs = [];
-for (let i = 0; i < 6; i++) {
-  const orb = new THREE.Mesh(
-    new THREE.SphereGeometry(0.15 + Math.random() * 0.2, 16, 16),
-    new THREE.MeshBasicMaterial({ color: orbColors[i % orbColors.length], transparent: true, opacity: 0.7 })
-  );
-  orb.position.set(
-    (Math.random() - 0.5) * 14,
-    (Math.random() - 0.5) * 10,
-    (Math.random() - 0.5) * 6
-  );
-  orb.userData.baseY = orb.position.y;
-  orb.userData.speed = 0.4 + Math.random() * 0.6;
-  orb.userData.phase = Math.random() * Math.PI * 2;
-  scene.add(orb);
-  orbs.push(orb);
-}
-
 // ── Mouse tracking ───────────────────────────────────────────────────────────
 let mouse = { x: 0, y: 0 };
 let targetRot = { x: 0, y: 0 };
@@ -121,7 +101,9 @@ ScrollTrigger.create({
   end: '40% top',
   onUpdate: (self) => {
     gsap.to(dnaGroup.position, { z: -self.progress * 8, duration: 0.3, ease: 'power2.out' });
-    gsap.to(dnaGroup, { 'material.opacity': 1 - self.progress * 0.6, duration: 0.1 });
+    dnaGroup.traverse((child) => {
+      if (child.material) child.material.opacity = 1 - self.progress * 0.45;
+    });
   }
 });
 
@@ -142,12 +124,6 @@ function animate() {
 
   dnaGroup.rotation.y = targetRot.y + t * 0.3;
   dnaGroup.rotation.x = targetRot.x;
-
-  // Float orbs
-  orbs.forEach(orb => {
-    orb.position.y = orb.userData.baseY + Math.sin(t * orb.userData.speed + orb.userData.phase) * 0.6;
-    orb.position.x += Math.sin(t * 0.2 + orb.userData.phase) * 0.002;
-  });
 
   // Drift particles slowly
   particleGeo.attributes.position.array.forEach((_, i) => {
@@ -177,9 +153,58 @@ gsap.utils.toArray('.section-card').forEach((card, i) => {
   });
 });
 
-gsap.from('.section-heading', {
+gsap.utils.toArray('.story-node, .route-card').forEach((item, i) => {
+  gsap.from(item, {
+    scrollTrigger: { trigger: item, start: 'top 88%' },
+    y: 36,
+    opacity: 0,
+    duration: 0.7,
+    delay: (i % 4) * 0.08,
+    ease: 'power3.out'
+  });
+});
+
+gsap.from('.showcase-media', {
+  scrollTrigger: { trigger: '.visual-showcase', start: 'top 78%' },
+  y: 40,
+  opacity: 0,
+  duration: 0.9,
+  ease: 'power3.out'
+});
+
+gsap.utils.toArray('.section-heading').forEach((heading) => {
+  gsap.from(heading, {
+    scrollTrigger: { trigger: heading, start: 'top 84%' },
+    y: 32,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  });
+});
+
+gsap.from('.hero-lab-card', {
+  y: 24,
+  opacity: 0,
+  duration: 1,
+  delay: 0.45,
+  ease: 'power3.out'
+});
+
+gsap.from('.hero-metric', {
+  y: 18,
+  opacity: 0,
+  duration: 0.7,
+  delay: 0.7,
+  stagger: 0.08,
+  ease: 'power3.out'
+});
+
+gsap.from('.section-label', {
   scrollTrigger: { trigger: '.sections-grid', start: 'top 80%' },
-  y: 40, opacity: 0, duration: 1, ease: 'power3.out'
+  y: 20,
+  opacity: 0,
+  duration: 0.7,
+  ease: 'power3.out'
 });
 
 })();

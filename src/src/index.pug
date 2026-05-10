@@ -15,6 +15,11 @@ html(lang="en")
     .cursor
     .cursor-follower
 
+    //- Generated visual layer for the homepage
+    .hero-backdrop(aria-hidden="true")
+      img(src=require('./assets/img/Home--synthetic-lab.png')['default'] alt='')
+      .hero-backdrop-shade
+
     //- Three.js canvas (full screen background)
     canvas#hero-canvas
 
@@ -30,17 +35,75 @@ html(lang="en")
         h1.hero-title
           span.title-line YOUR
           span.title-line.accent TEAM
-        p.hero-tagline Engineering biology to build a better world.
+        p.hero-tagline A living engineering notebook for the ideas, experiments, people, and design decisions behind our synthetic biology project.
         .hero-cta
           a.btn-primary-glow(href='/Description') Explore Project
-          a.btn-outline-glow(href='/Team') Meet the Team
+          a.btn-outline-glow(href='/Engineering') Engineering Cycle
+        .hero-metrics(aria-label="Wiki highlights")
+          .hero-metric
+            strong 12
+            span wiki pages
+          .hero-metric
+            strong 04
+            span project tracks
+          .hero-metric
+            strong 01
+            span team story
+
+      .hero-lab-card
+        p.lab-card-kicker Live Wiki Map
+        h2 From question to construct
+        .lab-card-flow
+          a.flow-step(href='/Description')
+            span 01
+            strong Frame
+          a.flow-step(href='/Design')
+            span 02
+            strong Design
+          a.flow-step(href='/Experiments')
+            span 03
+            strong Test
+          a.flow-step(href='/Results')
+            span 04
+            strong Learn
+        p.lab-card-note Follow the path from biological context to implementation, then see how human practices and safety shaped each decision.
         .hero-scroll-hint
           span Scroll to explore
           .scroll-line
 
     //- Sections
     main#main-content
-      .container.sections-grid
+      section.container.story-panel
+        .story-copy
+          p.section-label // PROJECT COMPASS //
+          h2.section-heading Build the story as the science grows
+          p.story-lede The wiki is set up as a complete competition home base: project context, design reasoning, experimental work, notebook records, safety, parts, human practices, and team contributions.
+        .story-board
+          .story-node.is-active
+            i.fas.fa-dna
+            span Define the biology
+          .story-node
+            i.fas.fa-pencil-ruler
+            span Design the system
+          .story-node
+            i.fas.fa-flask
+            span Run the experiments
+          .story-node
+            i.fas.fa-chart-line
+            span Share the evidence
+
+      section.container.visual-showcase
+        .showcase-media
+          img(src=require('./assets/img/Home--synthetic-lab.png')['default'] alt='Cinematic synthetic biology lab bench with DNA hologram')
+        .showcase-copy
+          p.section-label // FRONT PAGE //
+          h2.section-heading A sharper first impression
+          p This homepage now combines a generated project visual, the existing 3D DNA animation, and fast routes into every major wiki section. The layout is built to work before the final project content is ready, then become richer as your team replaces the placeholder pages.
+          a.showcase-link(href='/Notebook')
+            span Open Notebook
+            i.fas.fa-arrow-right
+
+      section.container.sections-grid
         p.section-label // NAVIGATE //
         h2.section-heading What We're Doing
 
@@ -110,5 +173,36 @@ html(lang="en")
               a.card-link(href='/Team')
                 span Explore
                 i.fas.fa-arrow-right
+
+      section.container.featured-routes
+        p.section-label // WIKI ROUTES //
+        h2.section-heading Start with a lens
+        .route-grid
+          a.route-card(href='/Design')
+            img(src=require('./assets/img/Home--design.jpeg')['default'] alt='Design planning visual')
+            .route-card-body
+              span Route 01
+              h3 Design Logic
+              p Trace decisions from problem framing to biological architecture.
+          a.route-card(href='/Human_Practices')
+            img(src=require('./assets/img/Home--human-practices.jpg')['default'] alt='Human practices discussion visual')
+            .route-card-body
+              span Route 02
+              h3 Human Practices
+              p See how stakeholder input and responsibility shape the project.
+          a.route-card(href='/Results')
+            img(src=require('./assets/img/Home--model.jpeg')['default'] alt='Modeling and results visual')
+            .route-card-body
+              span Route 03
+              h3 Data & Results
+              p Move from experimental evidence toward conclusions and next steps.
+
+      section.container.home-cta
+        p.section-label // READY //
+        h2.section-heading Keep building
+        p Replace the starter copy page by page, drop in real team photography, and let the front page become the launch pad for your finished iGEM story.
+        .hero-cta
+          a.btn-primary-glow(href='/Team') Meet the Team
+          a.btn-outline-glow(href='/Safety') Safety
 
     include templates/footer.pug

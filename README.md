@@ -48,7 +48,7 @@ src/
 │   │   ├── _main.scss     ← Global styles + Bootstrap
 │   │   ├── _nav.scss      ← Navbar styles
 │   │   ├── _footer.scss   ← Footer styles
-│   │   ├── home.scss      ← Homepage-only dark sci-fi styles
+│   │   ├── home.scss      ← Homepage-only generated-visual + 3D styles
 │   │   └── content.scss   ← Article/content page styles
 │   ├── js/
 │   │   ├── main.js        ← Navbar scroll, dark mode, custom cursor
@@ -99,11 +99,23 @@ Output goes to `src/dist/`.
 
 ## What Was Built
 
-- **3D animated homepage** — rotating DNA double helix (Three.js r152), 1200 floating particles, 6 floating colour orbs, mouse-tracking parallax, GSAP scroll animations, custom glow cursor
-- **Dark sci-fi design** — Orbitron + Rajdhani fonts, cyan/purple/teal palette on near-black background, glowing section cards
+- **Visual homepage** — generated synthetic-biology lab hero image, rotating Three.js DNA double helix, floating particle field, mouse-tracking parallax, GSAP scroll animations, custom glow cursor
+- **Homepage story sections** — project compass, generated lab showcase, six wiki navigation cards, three image-led route cards, and a final build prompt
+- **Dark lab design** — Orbitron + Rajdhani fonts, cyan/teal/purple core accents with amber highlights, near-black lab background, responsive glass panels
 - **All 12 wiki pages** — stub pages for Description, Design, Results, Experiments, Notebook, Engineering, Team, Attributions, Collaborations, Human Practices, Safety, Parts
 - **Simplified navigation** — Project dropdown, Team dropdown, Human Practices, Safety, Parts
 - **3-column footer** with quick links
+
+## Homepage Assets
+
+The homepage uses the following images from `src/src/assets/img/`:
+
+- `Home--synthetic-lab.png` — generated hero/showcase image for the front page
+- `Home--design.jpeg` — route card for Design
+- `Home--human-practices.jpg` — route card for Human Practices
+- `Home--model.jpeg` — route card for Data & Results
+
+If you replace the generated hero image, keep it wide, high contrast, and readable on the left side so the title and buttons remain legible.
 
 ---
 
@@ -160,11 +172,12 @@ To add a new page, also add it to `src/src/nav.yml`.
 ## Future Improvements
 
 - [ ] Replace all `YOUR_TEAM` placeholders with real team name
+- [ ] Replace the generated hero image with a team-specific lab/project visual if available
 - [ ] Add team photos and populate `Team.pug`
 - [ ] Write real project content for each page
 - [ ] Add experiment images to `src/src/assets/img/`
 - [ ] Add citations as `.yml` files in `src/src/citations/`
-- [ ] Customise colour theme in `home.scss` to match team branding
+- [ ] Customise colour accents in `home.scss` to match team branding
 - [ ] Add team logo to navbar in `nav.pug`
-- [ ] Mobile polish — test navbar and cards on small screens
+- [ ] Continue mobile polish as final content and real images are added
 - [ ] Upgrade to Webpack 5 (unlocks latest Three.js)
