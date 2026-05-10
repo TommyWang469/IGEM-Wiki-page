@@ -1,6 +1,6 @@
-# iGEM YOUR_TEAM 2025 — Wiki
+# iGEM YOUR_TEAM 2026 — Wiki
 
-The official wiki for **iGEM YOUR_TEAM 2025**, built on the [iGEM Wiki Starter Pack](https://github.com/igembitsgoa/igem-wiki-starter).
+The official wiki for **iGEM YOUR_TEAM 2026**, built on the [iGEM Wiki Starter Pack](https://github.com/igembitsgoa/igem-wiki-starter).
 
 ---
 

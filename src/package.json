@@ -1,7 +1,7 @@
 {
   "name": "igem-wiki",
   "version": "1.0.0",
-  "description": "Wiki for iGEM 2025 YOUR_TEAM",
+  "description": "Wiki for iGEM 2026 YOUR_TEAM",
   "main": "index.js",
   "scripts": {
     "preprocess": "python3 utils/preprocess.py",
