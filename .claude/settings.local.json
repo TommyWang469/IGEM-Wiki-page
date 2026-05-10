@@ -20,7 +20,9 @@
       "WebFetch(domain:2024.igem.wiki)",
       "Bash(mv .github/workflows/push.yml.jinja .github/workflows/push.yml)",
       "Bash(rm -f package-lock.json.jinja)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "WebFetch(domain:competition.igem.org)",
+      "WebFetch(domain:static.igem.org)"
     ]
   }
 }
