@@ -1,0 +1,13 @@
+_build
+_static
+_templates
+.vscode
+
+# Node
+src/node_modules/
+src/dist/
+
+# Python
+__pycache__/
+*.pyc
+.env

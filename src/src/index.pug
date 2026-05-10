@@ -1,0 +1,114 @@
+include templates/mixins
+
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title iGEM YOUR_TEAM 2025
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet")
+
+  body.home-page
+
+    //- Custom cursor
+    .cursor
+    .cursor-follower
+
+    //- Three.js canvas (full screen background)
+    canvas#hero-canvas
+
+    //- Navigation
+    include templates/nav.pug
+
+    //- Hero overlay
+    .hero-overlay
+      .hero-inner
+        .hero-badge
+          span.badge-dot
+          | iGEM 2025 Competition
+        h1.hero-title
+          span.title-line YOUR
+          span.title-line.accent TEAM
+        p.hero-tagline Engineering biology to build a better world.
+        .hero-cta
+          a.btn-primary-glow(href='/Description') Explore Project
+          a.btn-outline-glow(href='/Team') Meet the Team
+        .hero-scroll-hint
+          span Scroll to explore
+          .scroll-line
+
+    //- Sections
+    main#main-content
+      .container.sections-grid
+        p.section-label // NAVIGATE //
+        h2.section-heading What We're Doing
+
+        .row.g-4
+          .col-md-4
+            .section-card(data-color="cyan")
+              .card-accent
+              .card-number 01
+              .card-icon: i.fas.fa-dna
+              h4 Project Description
+              p Understand our biological problem, why it matters, and the synthetic biology solution we designed.
+              a.card-link(href='/Description')
+                span Explore
+                i.fas.fa-arrow-right
+
+          .col-md-4
+            .section-card(data-color="purple")
+              .card-accent
+              .card-number 02
+              .card-icon: i.fas.fa-pencil-ruler
+              h4 Design
+              p The engineering design cycle — from concept through iteration to our final construct design.
+              a.card-link(href='/Design')
+                span Explore
+                i.fas.fa-arrow-right
+
+          .col-md-4
+            .section-card(data-color="teal")
+              .card-accent
+              .card-number 03
+              .card-icon: i.fas.fa-chart-line
+              h4 Results
+              p Our experimental outcomes, data analysis, and what we learned from the lab.
+              a.card-link(href='/Results')
+                span Explore
+                i.fas.fa-arrow-right
+
+          .col-md-4
+            .section-card(data-color="purple")
+              .card-accent
+              .card-number 04
+              .card-icon: i.fas.fa-flask
+              h4 Experiments
+              p Detailed protocols and methods behind every experiment we ran.
+              a.card-link(href='/Experiments')
+                span Explore
+                i.fas.fa-arrow-right
+
+          .col-md-4
+            .section-card(data-color="cyan")
+              .card-accent
+              .card-number 05
+              .card-icon: i.fas.fa-globe
+              h4 Human Practices
+              p How we engaged with experts and stakeholders to shape a responsible project.
+              a.card-link(href='/Human_Practices')
+                span Explore
+                i.fas.fa-arrow-right
+
+          .col-md-4
+            .section-card(data-color="teal")
+              .card-accent
+              .card-number 06
+              .card-icon: i.fas.fa-users
+              h4 Our Team
+              p Meet the people who made this project happen — students, advisors, and PI.
+              a.card-link(href='/Team')
+                span Explore
+                i.fas.fa-arrow-right
+
+    include templates/footer.pug

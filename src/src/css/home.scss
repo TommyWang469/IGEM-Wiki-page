@@ -1,0 +1,399 @@
+// ── Variables ─────────────────────────────────────────────────────────────────
+$cyan:   #00e5ff;
+$purple: #7c4dff;
+$teal:   #1de9b6;
+$dark:   #050a0e;
+$dark2:  #0a1628;
+$white:  #e8f4f8;
+$gray:   #4a6080;
+
+// ── Reset body for homepage ───────────────────────────────────────────────────
+body.home-page {
+  background: $dark;
+  overflow-x: hidden;
+  cursor: none;
+
+  // Override nav for transparent dark look
+  .navbar {
+    background: transparent !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba($cyan, 0.1);
+    transition: background 0.4s ease;
+
+    &.nav-colored {
+      background: rgba(5, 10, 20, 0.95) !important;
+    }
+
+    .navbar-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: $cyan !important;
+      span { color: white; }
+    }
+
+    a.nav-link, a.dropdown-item {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(white, 0.8) !important;
+
+      &:hover { color: $cyan !important; }
+    }
+
+    .dropdown-menu {
+      background: rgba(10, 22, 40, 0.97);
+      border: 1px solid rgba($cyan, 0.15);
+      border-radius: 8px;
+      backdrop-filter: blur(20px);
+    }
+  }
+}
+
+// ── Custom cursor ─────────────────────────────────────────────────────────────
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: $cyan;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  box-shadow: 0 0 10px $cyan, 0 0 20px rgba($cyan, 0.5);
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba($cyan, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease;
+}
+
+// ── Canvas ────────────────────────────────────────────────────────────────────
+#hero-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+// ── Hero overlay ──────────────────────────────────────────────────────────────
+.hero-overlay {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 2rem 2rem;
+}
+
+.hero-inner {
+  max-width: 680px;
+  padding-left: 5vw;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $cyan;
+  margin-bottom: 1.5rem;
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background: $cyan;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+
+  .title-line {
+    display: block;
+    font-size: clamp(4rem, 10vw, 8rem);
+    color: $white;
+    letter-spacing: -0.02em;
+  }
+
+  .title-line.accent {
+    color: transparent;
+    -webkit-text-stroke: 2px $cyan;
+    text-shadow: 0 0 40px rgba($cyan, 0.4);
+  }
+}
+
+.hero-tagline {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba($white, 0.65);
+  letter-spacing: 0.05em;
+  margin-bottom: 2.5rem;
+  max-width: 420px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.btn-primary-glow {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  background: $cyan;
+  color: $dark;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba($cyan, 0.4), 0 0 40px rgba($cyan, 0.1);
+
+  &:hover {
+    background: white;
+    box-shadow: 0 0 30px rgba($cyan, 0.7), 0 0 60px rgba($cyan, 0.3);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: $dark;
+  }
+}
+
+.btn-outline-glow {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: $white;
+  border: 1px solid rgba($white, 0.3);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $purple;
+    color: $purple;
+    box-shadow: 0 0 20px rgba($purple, 0.3);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+}
+
+.hero-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba($white, 0.3);
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: rgba($white, 0.2);
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: $cyan;
+      animation: scroll-scan 2s ease-in-out infinite;
+    }
+  }
+}
+
+// ── Main content (below fold) ─────────────────────────────────────────────────
+#main-content {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(to bottom, transparent, $dark2 15%, $dark2);
+  padding-top: 2rem;
+}
+
+// ── Sections grid ─────────────────────────────────────────────────────────────
+.sections-grid {
+  padding: 5rem 1.5rem 6rem;
+}
+
+.section-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: $cyan;
+  margin-bottom: 0.5rem;
+}
+
+.section-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: $white;
+  margin-bottom: 3rem;
+
+  &::after {
+    content: '.';
+    color: $cyan;
+  }
+}
+
+// ── Section cards ─────────────────────────────────────────────────────────────
+.section-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 2rem;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  height: 100%;
+
+  .card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba($white, 0.2);
+    margin-bottom: 1.2rem;
+  }
+
+  .card-icon {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $white;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba($white, 0.5);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: gap 0.3s ease;
+
+    i { font-size: 0.7rem; transition: transform 0.3s ease; }
+    &:hover i { transform: translateX(4px); }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-6px);
+  }
+
+  // Color variants
+  &[data-color="cyan"] {
+    .card-accent { background: linear-gradient(90deg, $cyan, transparent); }
+    .card-icon { color: $cyan; }
+    .card-link { color: $cyan; }
+    &:hover { box-shadow: 0 20px 60px rgba($cyan, 0.1), 0 0 0 1px rgba($cyan, 0.15); }
+  }
+
+  &[data-color="purple"] {
+    .card-accent { background: linear-gradient(90deg, $purple, transparent); }
+    .card-icon { color: $purple; }
+    .card-link { color: $purple; }
+    &:hover { box-shadow: 0 20px 60px rgba($purple, 0.1), 0 0 0 1px rgba($purple, 0.15); }
+  }
+
+  &[data-color="teal"] {
+    .card-accent { background: linear-gradient(90deg, $teal, transparent); }
+    .card-icon { color: $teal; }
+    .card-link { color: $teal; }
+    &:hover { box-shadow: 0 20px 60px rgba($teal, 0.1), 0 0 0 1px rgba($teal, 0.15); }
+  }
+}
+
+// ── Footer override for dark ──────────────────────────────────────────────────
+body.home-page footer {
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba($cyan, 0.1);
+  backdrop-filter: blur(20px);
+  margin-top: 0;
+
+  h6 { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; }
+  p, a, li { font-family: 'Rajdhani', sans-serif; }
+}
+
+// ── Keyframe animations ───────────────────────────────────────────────────────
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes scroll-scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .hero-inner { padding-left: 1rem; }
+  .hero-overlay { padding: 100px 1rem 2rem; }
+  #hero-canvas { opacity: 0.6; }
+}

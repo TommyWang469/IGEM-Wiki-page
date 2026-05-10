@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(gh api *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(claude plugin *)",
+      "Bash(claude skills *)",
+      "Bash(GIT_SSH_COMMAND=\"ssh -o StrictHostKeyChecking=no\" claude plugin install agent-skills@addy-agent-skills)",
+      "Bash(git config *)",
+      "WebFetch(domain:ai4trade.ai)",
+      "Bash(curl -s https://ai4trade.ai/SKILL.md)",
+      "Bash(curl -s https://ai4trade.ai/skill/copytrade)",
+      "Bash(curl -s https://ai4trade.ai/skill/tradesync)",
+      "Bash(curl -s https://ai4trade.ai/skill/heartbeat)",
+      "Bash(curl -s https://ai4trade.ai/skill/polymarket)",
+      "Bash(curl -s https://ai4trade.ai/skill/market-intel)",
+      "WebFetch(domain:2024.igem.wiki)",
+      "Bash(mv .github/workflows/push.yml.jinja .github/workflows/push.yml)",
+      "Bash(rm -f package-lock.json.jinja)",
+      "Bash(npm install *)"
+    ]
+  }
+}

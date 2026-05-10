@@ -1,0 +1,37 @@
+extends ../templates/contents.pug
+
+block headVars
+    - var title = "Project Description"
+    - var tagline = "What are we engineering and why does it matter?"
+    - var requireMathJax = false
+
+block article
+    :markdown-it(html)
+
+        # Project Overview
+
+        *Replace this section with your project description.*
+
+        Describe the biological problem your team is addressing. What makes it important?
+        Why is a synthetic biology approach well-suited to solving it?
+
+        # Background
+
+        Provide the scientific background necessary to understand your project.
+        Include relevant literature and explain the key concepts.
+
+        # Our Approach
+
+        Describe the specific solution your team has designed. What biological parts,
+        devices, or systems are you engineering?
+
+        # Why This Matters
+
+        Explain the real-world impact of your project. Who benefits?
+        What problem does it solve?
+
+        # References
+
+        Add your citations here using the citations system (see `src/citations/`).
+
+//- DO NOT MODIFY THIS LINE AND ANYTHING BEYOND.
