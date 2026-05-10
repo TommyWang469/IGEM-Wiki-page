@@ -3,6 +3,10 @@ _static
 _templates
 .vscode
 
+# macOS
+.DS_Store
+**/.DS_Store
+
 # Node
 src/node_modules/
 src/dist/
