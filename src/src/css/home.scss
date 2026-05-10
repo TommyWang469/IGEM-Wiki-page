@@ -141,8 +141,7 @@ body.home-page button:focus-visible {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
+  justify-content: flex-start;
   padding: 100px 2rem 2rem;
 }
 
@@ -293,85 +292,6 @@ body.home-page button:focus-visible {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: rgba($white, 0.62);
-  }
-}
-
-.hero-lab-card {
-  width: min(380px, 32vw);
-  margin-right: 4vw;
-  padding: 1.35rem;
-  border: 1px solid rgba($cyan, 0.2);
-  border-radius: 8px;
-  background: rgba(6, 15, 24, 0.58);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.36);
-
-  h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.15rem;
-    color: $white;
-    margin-bottom: 1rem;
-  }
-}
-
-.lab-card-kicker,
-.lab-card-note {
-  font-family: 'Rajdhani', sans-serif;
-}
-
-.lab-card-kicker {
-  color: $teal;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  margin-bottom: 0.45rem;
-  text-transform: uppercase;
-}
-
-.lab-card-note {
-  color: rgba($white, 0.66);
-  font-size: 0.96rem;
-  line-height: 1.55;
-  margin: 1rem 0 1.4rem;
-}
-
-.lab-card-flow {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.65rem;
-}
-
-.flow-step {
-  display: block;
-  padding: 0.8rem;
-  border: 1px solid rgba($white, 0.1);
-  border-radius: 8px;
-  text-decoration: none;
-  color: $white;
-  background: rgba(255, 255, 255, 0.04);
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-
-  span {
-    display: block;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.64rem;
-    color: $amber;
-    margin-bottom: 0.4rem;
-  }
-
-  strong {
-    display: block;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.95rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  &:hover {
-    color: $white;
-    text-decoration: none;
-    transform: translateY(-3px);
-    border-color: rgba($cyan, 0.42);
-    background: rgba($cyan, 0.08);
   }
 }
 
@@ -782,11 +702,6 @@ body.home-page footer {
     overflow-wrap: break-word;
   }
 
-  .hero-lab-card {
-    width: 100%;
-    margin: 2rem 0 0;
-  }
-
   .hero-metric {
     min-width: calc(50% - 0.5rem);
     flex: 1 1 calc(50% - 0.5rem);
@@ -822,8 +737,7 @@ body.home-page footer {
     text-align: center;
   }
 
-  .story-board,
-  .lab-card-flow {
+  .story-board {
     grid-template-columns: 1fr;
   }
 }

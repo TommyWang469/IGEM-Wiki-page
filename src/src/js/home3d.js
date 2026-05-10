@@ -182,14 +182,6 @@ gsap.utils.toArray('.section-heading').forEach((heading) => {
   });
 });
 
-gsap.from('.hero-lab-card', {
-  y: 24,
-  opacity: 0,
-  duration: 1,
-  delay: 0.45,
-  ease: 'power3.out'
-});
-
 gsap.from('.hero-metric', {
   y: 18,
   opacity: 0,
